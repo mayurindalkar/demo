@@ -1,0 +1,265 @@
+</html>
+<HTML>
+
+<HEAD>
+    <STYLE>
+        body {
+            border-radius: 20px;
+            border-style: double;
+            border-color: black;
+            position: absolute;
+            width: 1050px;
+            height: 735px;
+            top: 15px;
+            left: 45px;
+            padding: 15px 30px 50px 30px;
+            background-color: #ffc0cb;
+        }
+
+        #tbl,
+        #tbl2 {
+            border-collapse: collapse;
+            font-size: 18;
+            font-family: Century Gothic;
+        }
+
+        .demo {
+            position: absolute;
+            left: 35px;
+            top: 380px;
+            font-size: 17;
+            font-family: Arial;
+            font-weight: bold;
+            margin-top: 35px;
+            border-collapse: collapse;
+        }
+
+        #demoname {
+            font-size: 15px
+        }
+
+        .btn {
+            position: absolute;
+            top: 355px;
+            left: 720px;
+        }
+    </STYLE>
+
+    <SCRIPT>
+        function myFun() {
+            var a = document.form1.txtname.value;
+            document.getElementById("demoname").innerHTML = a;
+            var b = document.form1.txtfname.value;
+            document.getElementById("demofname").innerHTML = b;
+            var c = document.form1.txtins.value;
+            document.getElementById("demoins").innerHTML = c;
+            var d = document.form1.txtbatch.value;
+            document.getElementById("demobatch").innerHTML = d;
+            var e = document.form1.txtip.value;
+            document.getElementById("demoip").innerHTML = e;
+            var f = document.form1.txtsens.value;
+            document.getElementById("demosens").innerHTML = f;
+            var g = document.form1.txteb.value;
+            document.getElementById("demoeb").innerHTML = g;
+            var h = document.form1.txtse.value;
+            document.getElementById("demose").innerHTML = h;
+            var i = document.form1.txtadmt.value;
+            document.getElementById("demoadmt").innerHTML = i;
+            var txt1 = eval(parseFloat(document.form1.txtip.value) + parseFloat(document.form1.txtsens.value)
+                + parseFloat(document.form1.txteb.value) + parseFloat(document.form1.txtse.value) + parseFloat(document.form1.txtadmt.value));
+            document.getElementById("demototal").innerHTML = txt1;
+            var txt2 = eval(parseFloat(txt1 * 100) / 500);
+            document.getElementById("demoper").innerHTML = txt2.toFixed(2) + "%";
+
+            switch (true) {
+                case (txt2 >= 80):
+                    document.getElementById("demograde").innerHTML = "A1";
+                    break;
+                case (txt2 >= 70):
+                    document.getElementById("demograde").innerHTML = "A";
+                    break;
+                case (txt2 >= 60):
+                    document.getElementById("demograde").innerHTML = "B";
+                    break;
+                case (txt2 >= 50):
+                    document.getElementById("demograde").innerHTML = "C";
+                    break;
+                case (txt2 >= 40):
+                    document.getElementById("demograde").innerHTML = "D";
+                    break;
+                case (txt2 < 40):
+                    document.getElementById("demograde").innerHTML = "Fail";
+                    break;
+            }
+
+            if (e < 35) {
+                document.getElementById("demoip").innerHTML = `${e} -->  F`
+                document.getElementById("demoip").style.backgroundColor = "red"
+            }
+            if (f < 35) {
+                document.getElementById("demosens").style.backgroundColor = "red"
+                document.getElementById("demosens").innerHTML = `${f} -->  F`
+            }
+            if (g < 35) {
+                document.getElementById("demoeb").style.backgroundColor = "red"
+                document.getElementById("demoeb").innerHTML = `${g} --> F`
+            }
+            if (h < 35) {
+                document.getElementById("demose").style.backgroundColor = "red"
+                document.getElementById("demose").innerHTML = `${h} -->  F`
+            }
+            if (i < 35) {
+                document.getElementById("demoadmt").style.backgroundColor = "red"
+                document.getElementById("demoadmt").innerHTML = `${i} -->  F`
+            }
+
+
+        }
+    </SCRIPT>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</HEAD>
+
+<BODY>
+    <DIV class="color">
+        <H1 align="center" style="font-family:cambria;font-size:40" ;><U>STUDENT MARKSHEET FORM</H1>
+        <FIELDSET>
+            <LEGEND> STUDENT INFORMATION </LEGEND>
+            <TABLE align="center" id="tbl">
+                <FORM name="form1">
+                <FORM name="form1">
+                    </TR>
+                    <TD width="140">Name:</TD>
+                    <TD><INPUT type="text" name="txtname" /></TD>
+                    <TD> &nbsp; &nbsp;Sure Name:</TD>
+                    <TD> <INPUT type="text" name="txtfname" /></TD>
+                    </TR>
+
+                    <TR>
+                        <TD width="140"> Institute Name:</TD>
+                        <TD> <INPUT type="text" name="txtins" /></TD>
+                        <TD style="text-indent:16px">Batch:</TD>
+                        <TD> <INPUT type="text" name="txtbatch" /></TD>
+                    </TR>
+            </TABLE>
+        </FIELDSET></BR>
+        <FIELDSET>
+            <LEGEND> SUBJECTS MARKS </LEGEND>
+            <TABLE id="tbl2">
+                <TR>
+                    <TD> Internet Programming</TD>
+                    <TD> <INPUT type="text" name="txtip" maxlength="2" size="10" /> Out of 100 </TD>
+
+                </TR>
+                <TR>
+                    <TD> Computer Network Security</TD>
+                    <TD> <INPUT type="text" name="txtsens" maxlength="2" size="10" /> Out of 100</TD>
+                </TR>
+                <TR>
+                    <TD> E-Business</TD>
+                    <TD> <INPUT type="text" name="txteb" maxlength="2" size="10" /> Out of 100</TD>
+                </TR>
+                <TR>
+                    <TD> Software Engineering</TD>
+                    <TD> <INPUT type="text" name="txtse" maxlength="2" size="10" /> Out of 100</TD>
+                </TR>
+                <TR>
+                    <TD> ADMT</TD>
+                    <TD> <INPUT type="text" name="txtadmt" maxlength="2" size="10" /> Out of 100</TD>
+                </TR>
+                <TR>
+                    <TD>&nbsp;</TD>
+                </TR>
+            </TABLE>
+        </FIELDSET>
+        <DIV class="btn">
+            <button style="font-size:17" type="button" onclick='myFun()'>Submit</button>
+            <button style="font-size:17" type="Reset">Reset</button>
+        </DIV>
+        <DIV class="demo">
+            <TABLE border="1">
+                <TR>
+                    <TH colspan="8" width="240"> Student Information </TH>
+                </TR>
+                <TR>
+                    <TD width="135">Name:</TD>
+                    <TD>
+                        <FONT face="arial" id="demoname"></FONT>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD width="135">Sure Name:</TD>
+                    <TD>
+                        <FONT face="arial" id="demofname"></FONT>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD width="135">Institute Name:</TD>
+                    <TD>
+                        <FONT face="arial" id="demoins"></FONT>
+                    </TD>
+                </TR>
+                <TD width="135">Batch:</TD>
+                <TD>
+                    <FONT face="arial" id="demobatch"></FONT>
+                </TD>
+                </TR>
+                <TR>
+                    <TH colspan="8" width="240"> Subjects Marks </TH>
+                </TR>
+                <TR>
+                    <TD width="135">IP</TD>
+                    <TD>
+                        <FONT face="arial" id="demoip"></FONT>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD width="135">CNS</TD>
+                    <TD>
+                        <FONT face="arial" id="demosens"></FONT>
+                    </TD>
+                </TR>
+                <TD width="135">E-Business</TD>
+                <TD>
+                    <FONT face="arial" id="demoeb"></FONT>
+                </TD>
+                </TR>
+                <TR>
+                    <TD width="135">Software Engi.</TD>
+                    <TD>
+                        <FONT face="arial" id="demose"></FONT>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD width="135">ADMT</TD>
+                    <TD>
+                        <FONT face="arial" id="demoadmt"></FONT>
+                    </TD>
+                </TR>
+                <TR>
+                    <TH colspan="8" width="240"> Marks Result </TH>
+                </TR>
+                <TR>
+                    <TD width="135">TOTAL:</TD>
+                    <TD>
+                        <FONT face="arial" id="demototal"></FONT></TT>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD width="135">Percentage:</TD>
+                    <TD>
+                        <FONT face="arial" id="demoper"></FONT>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD width="135">Grade:</TD>
+                    <TD>
+                        <FONT face="arial" id="demograde"></FONT>
+                    </TD>
+                </TR>
+            </TABLE>
+        </DIV>
+    </DIV>
+
+</BODY>
+
+</HTML>
